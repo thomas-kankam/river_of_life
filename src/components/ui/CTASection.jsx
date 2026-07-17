@@ -18,7 +18,7 @@ export default function CTASection({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-          className="relative overflow-hidden rounded-[2.5rem] bg-gradient-brand bg-[length:200%_auto] p-8 text-center shadow-glow-royal md:p-16 lg:p-20"
+          className="relative overflow-hidden rounded-[1.75rem] bg-gradient-brand bg-[length:200%_auto] p-6 text-center shadow-glow-royal sm:rounded-[2.5rem] sm:p-8 md:p-16 lg:p-20"
         >
           {/* Ambient light + dot texture */}
           <div className="pointer-events-none absolute inset-0 bg-dots opacity-10" aria-hidden="true" />
@@ -33,11 +33,11 @@ export default function CTASection({
           </h2>
           <p className="relative mx-auto mt-4 max-w-2xl text-lg text-white/90">{subtitle}</p>
 
-          <div className="relative mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
-            <Button to="/contact" variant="white" icon={Calendar}>
+          <div className="relative mt-8 flex w-full flex-col items-stretch justify-center gap-3 sm:mt-9 sm:flex-row sm:items-center sm:gap-4">
+            <Button to="/contact" variant="white" icon={Calendar} className="w-full sm:w-auto">
               Book Free Consultation
             </Button>
-            <Button href={COMPANY.phoneLink} variant="outline" icon={Phone}>
+            <Button href={COMPANY.phoneLink} variant="outline" icon={Phone} className="w-full sm:w-auto">
               Call {COMPANY.phone}
             </Button>
           </div>

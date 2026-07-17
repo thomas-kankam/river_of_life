@@ -26,7 +26,7 @@ export default function NewsletterForm({ light = false, stacked = false }) {
       onSubmit={handleSubmit(onSubmit)}
       className={cn(
         'flex w-full gap-2',
-        stacked ? 'flex-col' : 'flex-row items-start'
+        stacked ? 'flex-col' : 'flex-col sm:flex-row sm:items-start'
       )}
     >
       <div className="min-w-0 flex-1">
@@ -36,7 +36,7 @@ export default function NewsletterForm({ light = false, stacked = false }) {
           type="email"
           placeholder="Enter your email"
           className={cn(
-            'w-full rounded-full px-4 py-2.5 text-sm transition-colors focus:outline-none focus:ring-2 focus:ring-teal-400',
+            'w-full rounded-full px-4 py-2.5 text-base transition-colors focus:outline-none focus:ring-2 focus:ring-teal-400 sm:text-sm',
             light
               ? 'border border-white/20 bg-white/10 text-white placeholder:text-white/50'
               : 'border border-deep-200 bg-white text-deep-800'
@@ -53,7 +53,7 @@ export default function NewsletterForm({ light = false, stacked = false }) {
         type="submit"
         variant={light ? 'white' : 'primary'}
         disabled={isSubmitting}
-        className={cn('shrink-0 px-5 py-2.5 text-sm', stacked && 'w-full')}
+        className={cn('w-full shrink-0 px-5 py-2.5 text-sm sm:w-auto', stacked && 'w-full')}
       >
         {isSubmitting ? '...' : 'Subscribe'}
       </Button>

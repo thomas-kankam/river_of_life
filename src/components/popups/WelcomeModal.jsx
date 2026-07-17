@@ -22,7 +22,7 @@ export default function WelcomeModal({ onClose }) {
           initial={{ scale: 0.9, opacity: 0, y: 16 }}
           animate={{ scale: 1, opacity: 1, y: 0 }}
           exit={{ scale: 0.9, opacity: 0, y: 16 }}
-          className="relative max-w-lg overflow-hidden rounded-3xl bg-white shadow-card"
+          className="relative max-h-[min(92dvh,720px)] w-full max-w-lg overflow-y-auto overflow-x-hidden rounded-3xl bg-white shadow-card"
         >
           <div className="relative h-40 overflow-hidden sm:h-48">
             <LazyImage
@@ -42,7 +42,7 @@ export default function WelcomeModal({ onClose }) {
             </button>
           </div>
 
-          <div className="relative -mt-10 px-8 pb-8 text-center">
+          <div className="relative -mt-10 px-5 pb-6 text-center sm:px-8 sm:pb-8">
             <div className="mx-auto mb-4 inline-flex rounded-2xl bg-white p-3 shadow-card ring-1 ring-deep-100">
               <Logo variant="icon" link={false} />
             </div>

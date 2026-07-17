@@ -82,7 +82,7 @@ export default function ContactPage() {
             </div>
 
             <div className="lg:col-span-3" id="consultation-form">
-              <div className="rounded-3xl border border-deep-100 bg-white p-6 shadow-card md:p-10">
+              <div className="rounded-3xl border border-deep-100 bg-white p-5 shadow-card sm:p-6 md:p-10">
                 <h2 className="font-heading text-2xl font-bold text-deep-900">Send Us a Message</h2>
                 <p className="mt-2 text-deep-500">{COMPANY.slogan}</p>
                 <div className="mt-8">

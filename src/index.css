@@ -15,6 +15,7 @@
 
   body {
     @apply font-body text-deep-700 bg-sand-50 antialiased;
+    overflow-x: clip;
   }
 
   h1,
@@ -86,6 +87,14 @@
     background:
       linear-gradient(180deg, rgba(7, 21, 37, 0.40) 0%, transparent 42%, rgba(7, 21, 37, 0.64) 100%),
       linear-gradient(90deg, rgba(7, 21, 37, 0.84) 0%, rgba(15, 39, 68, 0.72) 42%, rgba(27, 54, 93, 0.48) 68%, rgba(0, 114, 206, 0.28) 100%);
+  }
+
+  @media (max-width: 1023px) {
+    .hero-overlay-home {
+      background:
+        linear-gradient(180deg, rgba(7, 21, 37, 0.45) 0%, rgba(15, 39, 68, 0.35) 45%, rgba(7, 21, 37, 0.72) 100%),
+        linear-gradient(160deg, rgba(7, 21, 37, 0.72) 0%, rgba(27, 54, 93, 0.55) 55%, rgba(0, 114, 206, 0.38) 100%);
+    }
   }
 
   /* Eyebrow / kicker label */
@@ -234,8 +243,20 @@
   .fab-chat-panel {
     bottom: calc(max(1.25rem, env(safe-area-inset-bottom, 1.25rem)) + 4.5rem);
     right: max(1rem, env(safe-area-inset-right, 1rem));
+    left: auto;
+    width: min(380px, calc(100vw - 2rem));
     height: min(520px, calc(100dvh - 11rem));
     max-height: min(520px, calc(100dvh - 11rem));
+  }
+
+  @media (max-width: 420px) {
+    .fab-chat-panel {
+      left: max(0.75rem, env(safe-area-inset-left, 0.75rem));
+      right: max(0.75rem, env(safe-area-inset-right, 0.75rem));
+      width: auto;
+      height: min(520px, calc(100dvh - 10rem));
+      max-height: min(520px, calc(100dvh - 10rem));
+    }
   }
 
   .fab-safe-left {

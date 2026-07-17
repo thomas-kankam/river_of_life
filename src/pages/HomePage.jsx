@@ -83,8 +83,8 @@ export default function HomePage() {
           />
         </div>
 
-        <div className="container-custom relative z-10 pt-28 pb-32 lg:pt-32 lg:pb-36">
-          <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-10">
+        <div className="container-custom relative z-10 pt-24 pb-20 sm:pt-28 sm:pb-28 lg:pt-32 lg:pb-36">
+          <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-10">
             {/* Left — copy */}
             <motion.div
               initial="hidden"
@@ -97,39 +97,39 @@ export default function HomePage() {
             >
               <motion.span
                 variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
-                className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-4 py-1.5 text-sm font-semibold text-white backdrop-blur-md"
+                className="mb-5 inline-flex max-w-full items-center gap-2 rounded-full border border-white/25 bg-white/10 px-3 py-1.5 text-xs font-semibold text-white backdrop-blur-md sm:px-4 sm:text-sm"
               >
-                <span className="relative flex h-2 w-2">
+                <span className="relative flex h-2 w-2 shrink-0">
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-teal-300 opacity-75" />
                   <span className="relative inline-flex h-2 w-2 rounded-full bg-teal-300" />
                 </span>
-                {COMPANY.tagline}
+                <span className="truncate">{COMPANY.tagline}</span>
               </motion.span>
               <motion.h1
                 variants={{ hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0 } }}
-                className="font-heading text-4xl font-bold leading-[1.05] tracking-tight text-white drop-shadow-sm sm:text-5xl lg:text-6xl xl:text-[4.25rem]"
+                className="font-heading text-[2rem] font-bold leading-[1.08] tracking-tight text-white drop-shadow-sm sm:text-5xl lg:text-6xl xl:text-[4.25rem]"
               >
-                <span className="mb-2 block text-lg font-semibold uppercase tracking-[0.2em] text-teal-300 sm:text-xl">
+                <span className="mb-2 block text-base font-semibold uppercase tracking-[0.18em] text-teal-300 sm:text-xl">
                   River of Life
                 </span>
                 <span className="block">{COMPANY.slogan}</span>
               </motion.h1>
               <motion.p
                 variants={{ hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0 } }}
-                className="mt-6 max-w-xl text-lg leading-relaxed text-white/90 sm:text-xl"
+                className="mt-5 max-w-xl text-base leading-relaxed text-white/90 sm:mt-6 sm:text-xl"
               >
                 Premium home healthcare that blends clinical excellence with heartfelt compassion — because your family deserves the best care.
               </motion.p>
               <motion.div
                 variants={{ hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0 } }}
-                className="mt-10 flex flex-col gap-4 sm:flex-row"
+                className="mt-8 flex flex-col gap-3 sm:mt-10 sm:flex-row sm:gap-4"
               >
-                <Button to="/contact" variant="white" icon={Calendar}>Book Consultation</Button>
-                <Button to="/services" variant="outline" icon={ArrowRight} iconPosition="right">Explore Services</Button>
+                <Button to="/contact" variant="white" icon={Calendar} className="w-full sm:w-auto">Book Consultation</Button>
+                <Button to="/services" variant="outline" icon={ArrowRight} iconPosition="right" className="w-full sm:w-auto">Explore Services</Button>
               </motion.div>
               <motion.ul
                 variants={{ hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0 } }}
-                className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm font-medium text-white/90"
+                className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm font-medium text-white/90 sm:mt-10 sm:gap-x-6 sm:gap-y-3"
               >
                 {['Licensed & Insured', 'Available 24/7', '98% Satisfaction'].map((item) => (
                   <li key={item} className="flex items-center gap-2">
@@ -145,36 +145,36 @@ export default function HomePage() {
               initial={{ opacity: 0, x: 40 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.9, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
-              className="relative mx-auto w-full max-w-md lg:col-span-6 lg:mx-0 lg:max-w-none xl:col-span-5"
+              className="relative mx-auto w-full max-w-sm sm:max-w-md lg:col-span-6 lg:mx-0 lg:max-w-none xl:col-span-5"
             >
-              <div className="relative px-2 sm:px-4 lg:px-0">
+              <div className="relative px-1 sm:px-4 lg:px-0">
                 {/* Soft glow behind the panel so it never looks empty */}
                 <div
-                  className="pointer-events-none absolute -inset-4 rounded-[2.5rem] bg-gradient-to-br from-royal-400/35 via-teal-400/25 to-transparent blur-2xl"
+                  className="pointer-events-none absolute -inset-4 hidden rounded-[2.5rem] bg-gradient-to-br from-royal-400/35 via-teal-400/25 to-transparent blur-2xl sm:block"
                   aria-hidden="true"
                 />
 
                 {/* Main photo card — slightly shorter so it fits the first viewport */}
-                <div className="relative overflow-hidden rounded-[2rem] border border-white/30 bg-deep-900 shadow-[0_24px_64px_rgba(7,21,37,0.55)] ring-1 ring-white/20">
+                <div className="relative overflow-hidden rounded-3xl border border-white/30 bg-deep-900 shadow-[0_24px_64px_rgba(7,21,37,0.55)] ring-1 ring-white/20 sm:rounded-[2rem]">
                   <LazyImage
                     src={IMAGES.caregiver}
                     alt={IMAGES.caregiverAlt}
                     priority
-                    wrapperClassName="aspect-[5/6] w-full max-h-[520px]"
+                    wrapperClassName="aspect-[5/6] w-full max-h-[380px] sm:max-h-[520px]"
                     className="h-full w-full object-cover object-top"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-deep-950/80 via-deep-900/10 to-transparent" />
-                  <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6">
+                  <div className="absolute inset-x-0 bottom-0 p-4 sm:p-6">
                     <p className="text-xs font-semibold uppercase tracking-[0.16em] text-teal-300">Featured Caregiver</p>
-                    <p className="mt-1 font-heading text-lg font-semibold text-white">Compassionate. Certified. Trusted.</p>
+                    <p className="mt-1 font-heading text-base font-semibold text-white sm:text-lg">Compassionate. Certified. Trusted.</p>
                   </div>
                 </div>
 
-                {/* Floating satisfaction badge */}
+                {/* Floating badges — desktop/tablet only to avoid mobile overflow */}
                 <motion.div
                   animate={{ y: [0, -8, 0] }}
                   transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
-                  className="absolute left-0 top-8 z-10 rounded-2xl border border-white/40 bg-white p-3.5 shadow-lift sm:-left-4 sm:top-10 sm:p-4"
+                  className="absolute -left-2 top-8 z-10 hidden rounded-2xl border border-white/40 bg-white p-3.5 shadow-lift sm:block sm:-left-4 sm:top-10 sm:p-4"
                 >
                   <div className="flex items-center gap-3">
                     <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-brand text-white">
@@ -187,11 +187,10 @@ export default function HomePage() {
                   </div>
                 </motion.div>
 
-                {/* Floating testimonial glass card */}
                 <motion.div
                   animate={{ y: [0, 6, 0] }}
                   transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
-                  className="absolute -bottom-2 right-0 left-8 z-10 rounded-2xl border border-white/30 bg-deep-950/90 p-4 shadow-lift backdrop-blur-xl sm:-bottom-4 sm:-right-2 sm:left-auto sm:max-w-[270px] sm:p-5"
+                  className="absolute -bottom-4 -right-2 z-10 hidden max-w-[270px] rounded-2xl border border-white/30 bg-deep-950/90 p-5 shadow-lift backdrop-blur-xl sm:block"
                 >
                   <div className="mb-2 flex gap-0.5" aria-hidden="true">
                     {[1, 2, 3, 4, 5].map((n) => (
@@ -206,10 +205,9 @@ export default function HomePage() {
                   </p>
                 </motion.div>
 
-                {/* Quick call chip */}
                 <a
                   href={COMPANY.phoneLink}
-                  className="absolute -top-3 right-2 z-10 inline-flex items-center gap-2 rounded-full border border-white/40 bg-white px-3.5 py-2 text-xs font-semibold text-royal-800 shadow-card transition-transform hover:-translate-y-0.5 sm:right-4"
+                  className="absolute -top-3 right-2 z-10 hidden items-center gap-2 rounded-full border border-white/40 bg-white px-3.5 py-2 text-xs font-semibold text-royal-800 shadow-card transition-transform hover:-translate-y-0.5 sm:inline-flex sm:right-4"
                 >
                   <Phone className="h-3.5 w-3.5 text-teal-600" aria-hidden="true" />
                   {COMPANY.phone}
@@ -238,9 +236,9 @@ export default function HomePage() {
       </section>
 
       {/* Stats */}
-      <section className="relative z-10 -mt-16 pb-8">
+      <section className="relative z-10 -mt-10 pb-8 sm:-mt-16">
         <div className="container-custom">
-          <div className="relative grid grid-cols-2 gap-4 overflow-hidden rounded-[2rem] border border-deep-100/80 bg-white/90 p-8 shadow-lift backdrop-blur-xl md:grid-cols-4 md:gap-8">
+          <div className="relative grid grid-cols-2 gap-3 overflow-hidden rounded-[1.5rem] border border-deep-100/80 bg-white/95 p-5 shadow-lift backdrop-blur-xl sm:gap-4 sm:rounded-[2rem] sm:p-8 md:grid-cols-4 md:gap-8">
             <div className="pointer-events-none absolute inset-0 bg-dots opacity-[0.04]" aria-hidden="true" />
             {STATS.map((stat, i) => (
               <div
@@ -248,7 +246,7 @@ export default function HomePage() {
                 className={cn(
                   'relative',
                   i > 0 && 'md:border-l md:border-deep-100',
-                  (i === 2 || i === 3) && 'border-t border-deep-100 pt-4 md:border-t-0 md:pt-0'
+                  (i === 2 || i === 3) && 'border-t border-deep-100 pt-3 sm:pt-4 md:border-t-0 md:pt-0'
                 )}
               >
                 <AnimatedCounter value={stat.value} suffix={stat.suffix} label={stat.label} />
@@ -406,8 +404,8 @@ export default function HomePage() {
       <section className="section-padding bg-gradient-soft">
         <div className="container-custom">
           <SectionHeading eyebrow="From Our Blog" title="Care Tips & Resources" subtitle="Expert insights to help your family navigate the home care journey." />
-          <StaggerContainer className="grid auto-rows-[220px] gap-4 lg:grid-cols-12">
-            <StaggerItem className="lg:col-span-6 lg:row-span-2">
+          <StaggerContainer className="grid auto-rows-[240px] gap-3 sm:auto-rows-[220px] sm:gap-4 lg:grid-cols-12">
+            <StaggerItem className="min-h-[280px] lg:col-span-6 lg:row-span-2 lg:min-h-0">
               <Link to={`/blog/${featuredBlog.slug}`} className="group block h-full">
                 <article className="relative h-full overflow-hidden rounded-3xl shadow-card">
                   <LazyImage

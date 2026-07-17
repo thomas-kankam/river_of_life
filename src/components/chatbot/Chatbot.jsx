@@ -68,7 +68,7 @@ export default function Chatbot() {
             initial={{ opacity: 0, y: 20, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
-            className="fab-chat-panel fixed z-[70] flex w-[380px] max-w-[calc(100vw-2rem)] flex-col overflow-hidden rounded-2xl border border-deep-100 bg-white shadow-card"
+            className="fab-chat-panel fixed z-[70] flex flex-col overflow-hidden rounded-2xl border border-deep-100 bg-white shadow-card"
             role="dialog"
             aria-label="Care assistant chat"
           >

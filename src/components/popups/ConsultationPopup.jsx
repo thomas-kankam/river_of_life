@@ -20,14 +20,14 @@ export default function ConsultationPopup({ open, onClose }) {
             initial={{ scale: 0.95, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.95, opacity: 0 }}
-            className="relative max-h-[90vh] w-full max-w-xl overflow-y-auto rounded-3xl bg-white p-6 shadow-card scrollbar-hide sm:p-8"
+            className="relative max-h-[90dvh] w-full max-w-xl overflow-y-auto rounded-3xl bg-white p-5 shadow-card scrollbar-hide sm:p-8"
           >
             <button type="button" onClick={onClose} className="absolute right-4 top-4 z-10 rounded-full bg-white p-2 shadow-soft hover:bg-deep-50" aria-label="Close consultation form">
               <X className="h-5 w-5" />
             </button>
             <h2 id="consultation-title" className="pr-10 font-heading text-2xl font-bold text-deep-900">Book a Free Consultation</h2>
             <p className="mt-2 text-deep-500">{COMPANY.slogan} — Tell us about your care needs.</p>
-            <div className="mt-6 overflow-hidden">
+            <div className="mt-6">
               <ContactForm compact formType="consultation" />
             </div>
           </motion.div>

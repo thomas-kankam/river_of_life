@@ -21,9 +21,9 @@ export default function PageHero({
   className,
 }) {
   const heights = {
-    sm: 'min-h-[340px] md:min-h-[400px]',
-    md: 'min-h-[420px] md:min-h-[500px]',
-    lg: 'min-h-[500px] md:min-h-[580px]',
+    sm: 'min-h-[300px] md:min-h-[400px]',
+    md: 'min-h-[360px] md:min-h-[500px]',
+    lg: 'min-h-[420px] md:min-h-[580px]',
   };
 
   return (
@@ -69,23 +69,23 @@ export default function PageHero({
               {eyebrow}
             </span>
           )}
-          <h1 className="font-heading text-4xl font-bold leading-[1.08] tracking-tight text-white drop-shadow-sm sm:text-5xl md:text-[3.5rem]">
+          <h1 className="font-heading text-[1.85rem] font-bold leading-[1.1] tracking-tight text-white drop-shadow-sm sm:text-5xl md:text-[3.5rem]">
             {title}
           </h1>
           {subtitle && (
-            <p className="mt-5 max-w-2xl text-base leading-relaxed text-white/90 sm:text-lg">
+            <p className="mt-4 max-w-2xl text-sm leading-relaxed text-white/90 sm:mt-5 sm:text-lg">
               {subtitle}
             </p>
           )}
           {(cta || secondaryCta) && (
-            <div className={cn('mt-8 flex flex-wrap gap-3', align === 'center' && 'justify-center')}>
+            <div className={cn('mt-6 flex w-full flex-col gap-3 sm:mt-8 sm:w-auto sm:flex-row sm:flex-wrap', align === 'center' && 'sm:justify-center')}>
               {cta && (
-                <Button to={cta.to} variant="white" icon={cta.icon}>
+                <Button to={cta.to} variant="white" icon={cta.icon} className="w-full sm:w-auto">
                   {cta.label}
                 </Button>
               )}
               {secondaryCta && (
-                <Button to={secondaryCta.to} variant="outline" icon={secondaryCta.icon} iconPosition="right">
+                <Button to={secondaryCta.to} variant="outline" icon={secondaryCta.icon} iconPosition="right" className="w-full sm:w-auto">
                   {secondaryCta.label}
                 </Button>
               )}
