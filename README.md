@@ -1,70 +1,106 @@
-# Getting Started with Create React App
+# River of Life Home Healthcare Agency
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Premium home healthcare website built with **Create React App**, **React 19**, **Tailwind CSS**, **Framer Motion**, and **GSAP**.
 
-## Available Scripts
+## Brand
 
-In the project directory, you can run:
+- **Company:** River of Life Home Healthcare Agency LLC
+- **Tagline:** Compassionate Care. Trusted Support.
+- **Slogan:** Your Health. Our Priority.
 
-### `npm start`
+## Tech Stack
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- React 19 + React Router
+- JavaScript (no TypeScript)
+- Tailwind CSS
+- Framer Motion & GSAP animations
+- React Helmet Async (SEO)
+- React Hook Form, Swiper, AOS, react-hot-toast, and more
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Getting Started
 
-### `npm test`
+```bash
+npm install
+npm start
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Open [http://localhost:3000](http://localhost:3000)
 
-### `npm run build`
+## Production Build
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+npm run build
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Deployment
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Vercel / Netlify
+- Connect the repository — `vercel.json` and `public/_redirects` handle SPA routing.
 
-### `npm run eject`
+### Traditional Hosting
+- Run `npm run build` and upload the `build/` folder to your web server.
+- Configure your server to serve `index.html` for all routes.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Project Structure
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```
+src/
+├── components/     # UI, layout, sections, popups, chatbot
+├── layouts/        # Main layout wrapper
+├── pages/          # Route pages (home, services, blog, etc.)
+├── data/           # Services, blogs, FAQs, testimonials, team
+├── constants/      # Company info, image URLs
+├── seo/            # SEO component & JSON-LD schemas
+├── hooks/          # Custom hooks (scroll, GSAP, localStorage)
+├── routes/         # React Router configuration
+└── utils/          # Helpers
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Form Backend
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Copy `.env.example` to `.env.local` and configure **one** option:
 
-## Learn More
+```bash
+# Formspree (recommended) — emails to riveroflifehhc@gmail.com
+REACT_APP_FORM_ENDPOINT=https://formspree.io/f/YOUR_FORM_ID
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+# OR Web3Forms
+REACT_APP_WEB3FORMS_ACCESS_KEY=your_key
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Without configuration, forms work in **dev mode** (console log + success toast).
 
-### Code Splitting
+## Brand Assets
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Logo files are in `public/images/`:
 
-### Analyzing the Bundle Size
+| File | Use |
+|------|-----|
+| `logo-full.png` | Welcome modal, OG image, print |
+| `logo-nav.png` | Header & footer |
+| `logo-icon.png` | Mobile header, chatbot avatar |
+| `favicon.ico` / `favicon-*.png` | Browser tab icons |
+| `logo192.png` / `logo512.png` | PWA manifest |
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Brand colors: Navy `#1B365D`, Blue `#0072CE`, Teal `#45A29E` (see `tailwind.config.js`).
 
-### Making a Progressive Web App
+## Image Assets
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Placeholder images are defined in `src/constants/images.js` using Unsplash URLs. Replace with local assets in `src/assets/` when ready.
 
-### Advanced Configuration
+## Features
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- Sticky navigation with Services & Resources mega menus
+- 13 individual service detail pages
+- Blog with categories, search, and article pages
+- Global search, FAQ accordion, contact forms
+- Simulated AI chatbot with predefined intents
+- Welcome modal, cookie consent, exit intent, newsletter popup
+- Floating phone/WhatsApp CTAs, reading progress, scroll-to-top
+- Full SEO: meta tags, Open Graph, JSON-LD schemas, sitemap, robots.txt
+- WCAG-focused accessibility patterns
 
-### Deployment
+## Contact
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- **Email:** riveroflifehhc@gmail.com
+- **Phone:** (267) 584-0431

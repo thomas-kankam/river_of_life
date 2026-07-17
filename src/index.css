@@ -1,13 +1,245 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    /* Keep auto so route changes jump to top; smooth only via JS (e.g. FAB) */
+    scroll-behavior: auto;
+    overflow-x: clip;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    @apply font-body text-deep-700 bg-sand-50 antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-heading text-deep-900;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    @apply bg-teal-200 text-deep-900;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-teal-500;
+  }
+
+  /* Refined, thinner scrollbar */
+  ::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply rounded-full border-4 border-solid border-transparent bg-deep-300 bg-clip-content;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-deep-400 bg-clip-content;
+  }
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@layer components {
+  .container-custom {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .glass {
+    @apply border border-white/40 bg-white/70 backdrop-blur-xl backdrop-saturate-150;
+  }
+
+  .glass-dark {
+    @apply border border-white/10 bg-deep-900/80 backdrop-blur-xl backdrop-saturate-150;
+  }
+
+  /* Full-bleed hero image overlays — brand navy/blue for readable white text */
+  .hero-overlay {
+    @apply absolute inset-0;
+    background:
+      linear-gradient(180deg, rgba(7, 21, 37, 0.42) 0%, transparent 38%, rgba(7, 21, 37, 0.62) 100%),
+      linear-gradient(115deg, rgba(7, 21, 37, 0.78) 0%, rgba(15, 39, 68, 0.68) 34%, rgba(27, 54, 93, 0.56) 62%, rgba(0, 114, 206, 0.42) 100%);
+  }
+
+  .hero-overlay-strong {
+    @apply absolute inset-0;
+    background:
+      linear-gradient(180deg, rgba(7, 21, 37, 0.46) 0%, transparent 36%, rgba(7, 21, 37, 0.68) 100%),
+      linear-gradient(105deg, rgba(7, 21, 37, 0.82) 0%, rgba(15, 39, 68, 0.72) 28%, rgba(27, 54, 93, 0.62) 54%, rgba(0, 114, 206, 0.48) 78%, rgba(69, 162, 158, 0.36) 100%);
+  }
+
+  /* Home hero: heavier on the left for copy, softer on the right for the visual panel */
+  .hero-overlay-home {
+    @apply absolute inset-0;
+    background:
+      linear-gradient(180deg, rgba(7, 21, 37, 0.40) 0%, transparent 42%, rgba(7, 21, 37, 0.64) 100%),
+      linear-gradient(90deg, rgba(7, 21, 37, 0.84) 0%, rgba(15, 39, 68, 0.72) 42%, rgba(27, 54, 93, 0.48) 68%, rgba(0, 114, 206, 0.28) 100%);
+  }
+
+  /* Eyebrow / kicker label */
+  .eyebrow {
+    @apply inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-teal-600;
+  }
+
+  /* Pill badge with hairline + soft surface */
+  .badge {
+    @apply inline-flex items-center gap-1.5 rounded-full border border-deep-200/70 bg-white/80 px-3 py-1 text-xs font-semibold text-deep-600 shadow-soft backdrop-blur-sm;
+  }
+
+  /* Primary button with animated sheen sweep on hover */
+  .btn-primary {
+    @apply relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-full bg-gradient-brand bg-[length:200%_auto] px-6 py-3 font-semibold text-white shadow-soft transition-all duration-300 ease-smooth hover:-translate-y-0.5 hover:bg-right hover:shadow-glow-royal focus-visible:ring-2 focus-visible:ring-teal-400 focus-visible:ring-offset-2;
+  }
+  .btn-primary::after {
+    content: '';
+    @apply pointer-events-none absolute inset-0 bg-shine bg-[length:220%_100%] bg-[position:-120%_0] opacity-0 transition-none;
+  }
+  .btn-primary:hover::after {
+    @apply opacity-100;
+    animation: shine 1.1s ease forwards;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-deep-200 bg-white px-6 py-3 font-semibold text-royal-700 shadow-soft transition-all duration-300 ease-smooth hover:-translate-y-0.5 hover:border-royal-300 hover:shadow-card focus-visible:ring-2 focus-visible:ring-teal-400 focus-visible:ring-offset-2;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-4 py-2 font-medium text-royal-700 transition-colors hover:bg-royal-50;
+  }
+
+  .section-padding {
+    @apply py-16 md:py-24 lg:py-28;
+  }
+
+  /* Premium card: hairline border, layered shadow, smooth lift */
+  .card-premium {
+    @apply rounded-3xl border border-deep-100/80 bg-white p-6 shadow-soft transition-all duration-500 ease-smooth hover:-translate-y-1.5 hover:border-deep-200 hover:shadow-lift;
+  }
+
+  /* Surface — subtle elevated panel */
+  .surface {
+    @apply rounded-3xl border border-deep-100/80 bg-white shadow-soft;
+  }
+
+  .hairline {
+    @apply border border-deep-100/80;
+  }
+
+  .skip-link {
+    @apply sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[9999] focus:rounded-lg focus:bg-royal-700 focus:px-4 focus:py-2 focus:text-white;
+  }
+
+  .form-input {
+    @apply w-full rounded-2xl border border-deep-200 bg-white px-4 py-3.5 text-base text-deep-800 placeholder:text-deep-400 shadow-sm transition-all duration-200 focus:border-teal-400 focus:outline-none focus:ring-4 focus:ring-teal-100;
+  }
+
+  /* Animated underline link */
+  .link-underline {
+    @apply relative inline-flex items-center gap-1 font-semibold text-royal-700 transition-colors hover:text-royal-900;
+  }
+  .link-underline::after {
+    content: '';
+    @apply absolute -bottom-0.5 left-0 h-0.5 w-0 rounded-full bg-teal-500 transition-all duration-300 ease-smooth;
+  }
+  .link-underline:hover::after {
+    @apply w-full;
+  }
+}
+
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Decorative background patterns */
+  .bg-grid {
+    background-image: theme('backgroundImage.grid-lines');
+    background-size: 48px 48px;
+  }
+
+  .bg-dots {
+    background-image: theme('backgroundImage.dot-grid');
+    background-size: 22px 22px;
+  }
+
+  /* Fade a decorative layer toward the edges */
+  .mask-fade-b {
+    -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+  }
+  .mask-fade-radial {
+    -webkit-mask-image: radial-gradient(ellipse at center, black 40%, transparent 75%);
+    mask-image: radial-gradient(ellipse at center, black 40%, transparent 75%);
+  }
+
+  .testimonial-swiper .swiper-pagination-bullet {
+    @apply bg-royal-300 opacity-100;
+  }
+
+  .testimonial-swiper .swiper-pagination-bullet-active {
+    @apply bg-royal-600;
+  }
+
+  .testimonial-swiper .swiper-button-next,
+  .testimonial-swiper .swiper-button-prev {
+    @apply hidden;
+  }
+
+  .testimonial-swiper .swiper-slide {
+    height: auto;
+  }
+
+  @keyframes float-soft {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  .animate-float-soft {
+    animation: float-soft 6s ease-in-out infinite;
+  }
+
+  /* Floating action buttons — stay visible at 100% zoom / with taskbars */
+  .fab-safe {
+    bottom: max(1.25rem, env(safe-area-inset-bottom, 1.25rem));
+    right: max(1rem, env(safe-area-inset-right, 1rem));
+  }
+
+  .fab-scroll {
+    bottom: calc(max(1.25rem, env(safe-area-inset-bottom, 1.25rem)) + 4.5rem);
+    right: max(1.25rem, env(safe-area-inset-right, 1.25rem));
+  }
+
+  .fab-chat-panel {
+    bottom: calc(max(1.25rem, env(safe-area-inset-bottom, 1.25rem)) + 4.5rem);
+    right: max(1rem, env(safe-area-inset-right, 1rem));
+    height: min(520px, calc(100dvh - 11rem));
+    max-height: min(520px, calc(100dvh - 11rem));
+  }
+
+  .fab-safe-left {
+    bottom: max(1.25rem, env(safe-area-inset-bottom, 1.25rem));
+    left: max(1rem, env(safe-area-inset-left, 1rem));
+  }
 }
